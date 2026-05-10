@@ -1,0 +1,68 @@
+Set SIZE = 20
+
+Create array correctAnswers with SIZE elements
+Create array studentAnswers with SIZE elements
+
+Open "CorrectAnswers.txt"
+Open "StudentAnswers.txt"
+
+If CorrectAnswers file fails to open
+    Display "Error opening CorrectAnswers.txt"
+    Stop program
+End If
+
+If StudentAnswers file fails to open
+    Display "Error opening StudentAnswers.txt"
+    Stop program
+End If
+
+
+For i = 0 to SIZE - 1
+    Read answer into correctAnswers[i]
+End For
+
+For i = 0 to SIZE - 1
+    Read answer into studentAnswers[i]
+End For
+
+
+Set missed = 0
+Set correct = 0
+
+Display "Questions Missed"
+
+For i = 0 to SIZE - 1
+
+    If studentAnswers[i] is not equal to correctAnswers[i]
+
+        Add 1 to missed
+
+        Display question number
+        Display correct answer
+        Display student answer
+
+    Else
+
+        Add 1 to correct
+
+    End If
+
+End For
+
+
+Set percentage = (correct / SIZE) * 100
+
+Display total missed questions
+Display percentage correct
+
+If percentage >= 70
+    Display "PASS"
+Else
+    Display "FAIL"
+End If
+
+
+Close CorrectAnswers file
+Close StudentAnswers file
+
+End program
